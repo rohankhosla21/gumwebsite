@@ -1,254 +1,328 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BuzzBite - Caffeinated Chewing Gum</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
-    <!-- Inter Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Feather Icons -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .hero-image {
-            background-image: url('https://raw.githubusercontent.com/som221993/buzzbite/main/WhatsApp%20Image%202025-03-24%20at%2018.31.50.jpeg');
-            background-size: cover;
-            background-position: center;
-        }
-        .gradient-overlay {
-            background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
-        }
-    </style>
-</head>
-<body class="min-h-screen bg-white">
-    <!-- Navigation -->
-    <nav class="bg-black text-white py-6">
-        <div class="container mx-auto px-8 flex justify-between items-center">
-            <div class="text-3xl font-bold">
-                <span class="text-yellow-400">BUZZ</span>
-                <span class="text-white">BITE</span>
-            </div>
-            <div class="hidden md:flex space-x-12">
-                <a href="#" class="hover:text-yellow-400 text-lg">Home</a>
-                <a href="#" class="hover:text-yellow-400 text-lg">Products</a>
-                <a href="#" class="hover:text-yellow-400 text-lg">About</a>
-                <a href="#" class="hover:text-yellow-400 text-lg">Contact</a>
-            </div>
-            <button class="bg-yellow-400 text-black px-6 py-3 rounded font-semibold text-lg">
-                Shop Now
-            </button>
-        </div>
-    </nav>
+import Image from "next/image"
+import Link from "next/link"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
+import { Zap, Flame, ShieldCheck, Gauge, Instagram, Twitter, Facebook, Youtube } from "lucide-react"
 
-    <!-- Hero Banner - Full Width Desktop Design -->
-    <div class="bg-black text-white py-0">
-        <div class="flex flex-col md:flex-row h-screen max-h-96">
-            <!-- Left side content -->
-            <div class="w-full md:w-1/2 flex items-center">
-                <div class="px-8 md:pl-24 md:pr-12 py-12 md:py-0 space-y-8">
-                    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
-                        CHEW. CHARGE. <br />
-                        <span class="text-yellow-400">CONQUER.</span>
-                    </h1>
-                    <p class="text-lg md:text-xl">
-                        The ultimate caffeinated gum for your daily boost. 
-                        60mg of caffeine per piece, low calorie, premium ingredients.
-                    </p>
-                    <button class="bg-yellow-400 text-black px-8 py-3 md:px-10 md:py-4 rounded-md font-bold flex items-center text-lg">
-                        SHOP NOW
-                        <i data-feather="arrow-right" class="ml-3"></i>
-                    </button>
-                </div>
+export default function Home() {
+  return (
+    <div className="flex min-h-screen flex-col">
+      {/* Header */}
+      <header className="sticky top-0 z-50 w-full border-b bg-white">
+        <div className="container flex h-16 items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="font-black text-2xl tracking-tight">
+              <span className="text-yellow-500">BUZZ</span>
+              <span>BITE</span>
             </div>
-            
-            <!-- Right side image -->
-            <div class="w-full md:w-1/2 relative overflow-hidden hero-image">
-                <div class="absolute inset-0 gradient-overlay"></div>
-                <div class="absolute bottom-10 left-10 bg-yellow-400 text-black py-2 px-4 rounded-md font-bold">
-                    60mg CAFFEINE PER PIECE
-                </div>
-            </div>
+          </div>
+          <nav className="hidden md:flex gap-6">
+            <Link href="#" className="text-sm font-medium hover:text-yellow-500 transition-colors">
+              Home
+            </Link>
+            <Link href="#" className="text-sm font-medium hover:text-yellow-500 transition-colors">
+              Products
+            </Link>
+            <Link href="#" className="text-sm font-medium hover:text-yellow-500 transition-colors">
+              About
+            </Link>
+            <Link href="#" className="text-sm font-medium hover:text-yellow-500 transition-colors">
+              Reviews
+            </Link>
+            <Link href="#" className="text-sm font-medium hover:text-yellow-500 transition-colors">
+              Contact
+            </Link>
+          </nav>
+          <div>
+            <Button className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold">Shop Now</Button>
+          </div>
         </div>
+      </header>
+
+      <main className="flex-1">
+        {/* Hero Section */}
+        <section className="relative">
+          <div className="relative h-[70vh] w-full overflow-hidden bg-yellow-100">
+            <Image
+              src="/placeholder.svg?height=1080&width=1920"
+              alt="BuzzBite Caffeinated Gum"
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-black/30" />
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
+              <h1 className="text-4xl md:text-6xl font-black text-white mb-4">
+                GET YOUR <span className="text-yellow-400">BUZZ</span> ON
+              </h1>
+              <p className="text-xl md:text-2xl text-white mb-8 max-w-2xl">
+                The perfect caffeinated gum for an instant energy boost. One piece equals one espresso shot.
+              </p>
+              <Button className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold text-lg px-8 py-6">
+                SHOP NOW
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section className="py-16 bg-white">
+          <div className="container">
+            <h2 className="text-3xl md:text-4xl font-black text-center mb-12">
+              WHY <span className="text-yellow-500">BUZZBITE</span>?
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="flex flex-col items-center text-center p-6 rounded-lg hover:shadow-lg transition-shadow">
+                <div className="bg-yellow-100 p-4 rounded-full mb-4">
+                  <Zap className="h-8 w-8 text-yellow-500" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">60mg Caffeine</h3>
+                <p className="text-gray-600">Each piece packs the punch of one espresso shot to keep you energized.</p>
+              </div>
+
+              <div className="flex flex-col items-center text-center p-6 rounded-lg hover:shadow-lg transition-shadow">
+                <div className="bg-yellow-100 p-4 rounded-full mb-4">
+                  <Flame className="h-8 w-8 text-yellow-500" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">Low Calories</h3>
+                <p className="text-gray-600">
+                  All the energy without the guilt. Enjoy your buzz with minimal calories.
+                </p>
+              </div>
+
+              <div className="flex flex-col items-center text-center p-6 rounded-lg hover:shadow-lg transition-shadow">
+                <div className="bg-yellow-100 p-4 rounded-full mb-4">
+                  <ShieldCheck className="h-8 w-8 text-yellow-500" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">Premium Ingredients</h3>
+                <p className="text-gray-600">Made with safe, high-quality ingredients you can trust.</p>
+              </div>
+
+              <div className="flex flex-col items-center text-center p-6 rounded-lg hover:shadow-lg transition-shadow">
+                <div className="bg-yellow-100 p-4 rounded-full mb-4">
+                  <Gauge className="h-8 w-8 text-yellow-500" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">Optimal Buzz</h3>
+                <p className="text-gray-600">Not too slow, not too jittery. Just the right amount of energy.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Product Showcase */}
+        <section className="py-16 bg-yellow-50">
+          <div className="container">
+            <div className="flex flex-col md:flex-row items-center gap-8">
+              <div className="md:w-1/2">
+                <Image
+                  src="/placeholder.svg?height=600&width=600"
+                  alt="BuzzBite Product"
+                  width={500}
+                  height={500}
+                  className="rounded-lg"
+                />
+              </div>
+              <div className="md:w-1/2">
+                <h2 className="text-3xl md:text-4xl font-black mb-6">
+                  ENERGY IN YOUR <span className="text-yellow-500">POCKET</span>
+                </h2>
+                <p className="text-lg text-gray-700 mb-6">
+                  BuzzBite is the convenient, portable energy solution for students, professionals, athletes, and anyone
+                  who needs a quick boost without the hassle of brewing coffee or drinking energy drinks.
+                </p>
+                <ul className="space-y-4 mb-8">
+                  <li className="flex items-center gap-2">
+                    <div className="bg-yellow-200 p-1 rounded-full">
+                      <Zap className="h-4 w-4 text-yellow-600" />
+                    </div>
+                    <span>Fast-acting formula for immediate energy</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="bg-yellow-200 p-1 rounded-full">
+                      <Zap className="h-4 w-4 text-yellow-600" />
+                    </div>
+                    <span>Long-lasting effect without crashes</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="bg-yellow-200 p-1 rounded-full">
+                      <Zap className="h-4 w-4 text-yellow-600" />
+                    </div>
+                    <span>Great taste with refreshing flavors</span>
+                  </li>
+                </ul>
+                <Button className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold">SHOP NOW</Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials */}
+        <section className="py-16 bg-white">
+          <div className="container">
+            <h2 className="text-3xl md:text-4xl font-black text-center mb-12">
+              WHAT OUR <span className="text-yellow-500">CUSTOMERS</span> SAY
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <div className="flex items-center mb-4">
+                  <Image
+                    src="/placeholder.svg?height=100&width=100"
+                    alt="Customer"
+                    width={60}
+                    height={60}
+                    className="rounded-full"
+                  />
+                  <div className="ml-4">
+                    <h4 className="font-bold">Alex K.</h4>
+                    <p className="text-sm text-gray-500">College Student</p>
+                  </div>
+                </div>
+                <p className="text-gray-700">
+                  "BuzzBite has been a game-changer for my late-night study sessions. One piece and I'm focused for
+                  hours without the jitters I get from energy drinks."
+                </p>
+              </div>
+
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <div className="flex items-center mb-4">
+                  <Image
+                    src="/placeholder.svg?height=100&width=100"
+                    alt="Customer"
+                    width={60}
+                    height={60}
+                    className="rounded-full"
+                  />
+                  <div className="ml-4">
+                    <h4 className="font-bold">Jamie T.</h4>
+                    <p className="text-sm text-gray-500">Fitness Instructor</p>
+                  </div>
+                </div>
+                <p className="text-gray-700">
+                  "I recommend BuzzBite to all my clients who need a pre-workout boost. It's convenient, effective, and
+                  doesn't cause the crash that coffee does."
+                </p>
+              </div>
+
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <div className="flex items-center mb-4">
+                  <Image
+                    src="/placeholder.svg?height=100&width=100"
+                    alt="Customer"
+                    width={60}
+                    height={60}
+                    className="rounded-full"
+                  />
+                  <div className="ml-4">
+                    <h4 className="font-bold">Morgan L.</h4>
+                    <p className="text-sm text-gray-500">Software Developer</p>
+                  </div>
+                </div>
+                <p className="text-gray-700">
+                  "As someone who codes for hours, BuzzBite helps me stay in the zone without having to take coffee
+                  breaks. Plus, it's much better for my teeth!"
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-16 bg-yellow-500">
+          <div className="container text-center">
+            <h2 className="text-3xl md:text-4xl font-black text-black mb-6">READY TO GET YOUR BUZZ ON?</h2>
+            <p className="text-xl text-black mb-8 max-w-2xl mx-auto">
+              Join thousands of satisfied customers who have made BuzzBite their go-to energy solution.
+            </p>
+            <Button className="bg-black hover:bg-gray-800 text-white font-bold text-lg px-8 py-6">SHOP NOW</Button>
+          </div>
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="container">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+              <div className="font-black text-2xl tracking-tight mb-4">
+                <span className="text-yellow-500">BUZZ</span>
+                <span className="text-white">BITE</span>
+              </div>
+              <p className="text-gray-400">
+                The caffeinated gum that gives you the perfect energy boost, anytime, anywhere.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-lg mb-4">Quick Links</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="#" className="text-gray-400 hover:text-yellow-500 transition-colors">
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-gray-400 hover:text-yellow-500 transition-colors">
+                    Products
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-gray-400 hover:text-yellow-500 transition-colors">
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="text-gray-400 hover:text-yellow-500 transition-colors">
+                    FAQ
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-lg mb-4">Contact</h3>
+              <ul className="space-y-2">
+                <li className="text-gray-400">hello@buzzbite.com</li>
+                <li className="text-gray-400">1-800-BUZZBITE</li>
+                <li className="text-gray-400">123 Energy St, Caffeine City</li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-lg mb-4">Subscribe</h3>
+              <p className="text-gray-400 mb-4">Get updates on new products and exclusive offers.</p>
+              <div className="flex gap-2">
+                <Input placeholder="Your email" className="bg-gray-800 border-gray-700 text-white" />
+                <Button className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold">Join</Button>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-400 text-sm mb-4 md:mb-0">
+              © {new Date().getFullYear()} BuzzBite. All rights reserved.
+            </p>
+            <div className="flex gap-4">
+              <Link href="#" className="text-gray-400 hover:text-yellow-500 transition-colors">
+                <Instagram className="h-5 w-5" />
+                <span className="sr-only">Instagram</span>
+              </Link>
+              <Link href="#" className="text-gray-400 hover:text-yellow-500 transition-colors">
+                <Twitter className="h-5 w-5" />
+                <span className="sr-only">Twitter</span>
+              </Link>
+              <Link href="#" className="text-gray-400 hover:text-yellow-500 transition-colors">
+                <Facebook className="h-5 w-5" />
+                <span className="sr-only">Facebook</span>
+              </Link>
+              <Link href="#" className="text-gray-400 hover:text-yellow-500 transition-colors">
+                <Youtube className="h-5 w-5" />
+                <span className="sr-only">YouTube</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
+  )
+}
 
-    <!-- Product Features -->
-    <div class="py-16 md:py-24 bg-gradient-to-b from-black to-gray-900 text-white">
-        <div class="container mx-auto px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16">WHY <span class="text-yellow-400">BUZZ</span>BITE?</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
-                <div class="bg-gray-800 p-6 md:p-8 rounded-lg shadow-lg text-center">
-                    <div class="mx-auto mb-6 text-yellow-400">
-                        <i data-feather="coffee" class="w-12 h-12 md:w-16 md:h-16 mx-auto"></i>
-                    </div>
-                    <h3 class="text-xl md:text-2xl font-bold mb-3">ESPRESSO POWER</h3>
-                    <p class="md:text-lg">Each piece packs the caffeine of one espresso shot (60mg)</p>
-                </div>
-                
-                <div class="bg-gray-800 p-6 md:p-8 rounded-lg shadow-lg text-center">
-                    <div class="mx-auto mb-6 text-yellow-400">
-                        <i data-feather="leaf" class="w-12 h-12 md:w-16 md:h-16 mx-auto"></i>
-                    </div>
-                    <h3 class="text-xl md:text-2xl font-bold mb-3">LOW CALORIES</h3>
-                    <p class="md:text-lg">Enjoy your energy boost without the unnecessary calories</p>
-                </div>
-                
-                <div class="bg-gray-800 p-6 md:p-8 rounded-lg shadow-lg text-center">
-                    <div class="mx-auto mb-6 text-yellow-400">
-                        <i data-feather="shield" class="w-12 h-12 md:w-16 md:h-16 mx-auto"></i>
-                    </div>
-                    <h3 class="text-xl md:text-2xl font-bold mb-3">PREMIUM INGREDIENTS</h3>
-                    <p class="md:text-lg">Made with safe, high-quality ingredients you can trust</p>
-                </div>
-                
-                <div class="bg-gray-800 p-6 md:p-8 rounded-lg shadow-lg text-center">
-                    <div class="mx-auto mb-6 text-yellow-400">
-                        <i data-feather="zap" class="w-12 h-12 md:w-16 md:h-16 mx-auto"></i>
-                    </div>
-                    <h3 class="text-xl md:text-2xl font-bold mb-3">OPTIMAL BUZZ</h3>
-                    <p class="md:text-lg">The perfect balance - not too slow, not too jittery</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Testimonials -->
-    <div class="py-16 md:py-24 bg-white">
-        <div class="container mx-auto px-8">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16">WHAT PEOPLE ARE SAYING</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
-                <div class="bg-gray-100 p-6 md:p-8 rounded-lg shadow-md">
-                    <div class="flex items-center mb-6">
-                        <img 
-                            src="https://thispersondoesnotexist.com/" 
-                            alt="Alex K." 
-                            class="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover"
-                            onload="if(this.naturalHeight===0) this.src='https://via.placeholder.com/80';"
-                        />
-                        <div class="ml-4">
-                            <h4 class="font-bold text-lg md:text-xl">Alex K.</h4>
-                            <p class="text-gray-600">Student</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 md:text-lg">"BuzzBite is my secret weapon for late-night study sessions. One piece and I'm focused for hours without the coffee crash!"</p>
-                </div>
-                
-                <div class="bg-gray-100 p-6 md:p-8 rounded-lg shadow-md">
-                    <div class="flex items-center mb-6">
-                        <img 
-                            src="https://thispersondoesnotexist.com/" 
-                            alt="Jamie T." 
-                            class="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover"
-                            onload="if(this.naturalHeight===0) this.src='https://via.placeholder.com/80';"
-                        />
-                        <div class="ml-4">
-                            <h4 class="font-bold text-lg md:text-xl">Jamie T.</h4>
-                            <p class="text-gray-600">Gamer</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 md:text-lg">"I pop a BuzzBite before gaming tournaments. The mental clarity is unreal, and I don't get the jitters I used to get from energy drinks."</p>
-                </div>
-                
-                <div class="bg-gray-100 p-6 md:p-8 rounded-lg shadow-md">
-                    <div class="flex items-center mb-6">
-                        <img 
-                            src="https://thispersondoesnotexist.com/" 
-                            alt="Taylor M." 
-                            class="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover"
-                            onload="if(this.naturalHeight===0) this.src='https://via.placeholder.com/80';"
-                        />
-                        <div class="ml-4">
-                            <h4 class="font-bold text-lg md:text-xl">Taylor M.</h4>
-                            <p class="text-gray-600">Fitness Trainer</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-700 md:text-lg">"As a trainer, I need sustained energy without the sugar. BuzzBite gives me the perfect pre-workout boost with zero calories. Game changer!"</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Call to Action -->
-    <div class="py-12 md:py-20 bg-yellow-400">
-        <div class="container mx-auto px-8 text-center">
-            <h2 class="text-3xl md:text-5xl font-bold mb-6 md:mb-8">READY TO CHARGE UP?</h2>
-            <button class="bg-black text-white px-8 py-3 md:px-10 md:py-4 rounded-md font-bold text-lg md:text-xl hover:bg-gray-800 transition duration-300">
-                GET YOUR BUZZ NOW
-            </button>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-black text-white py-12 md:py-16">
-        <div class="container mx-auto px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
-                <div>
-                    <h3 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">
-                        <span class="text-yellow-400">BUZZ</span>
-                        <span class="text-white">BITE</span>
-                    </h3>
-                    <p class="text-gray-400 md:text-lg">Caffeinated chewing gum for the modern hustler.</p>
-                </div>
-                
-                <div>
-                    <h4 class="font-bold text-lg md:text-xl mb-4 md:mb-6">LINKS</h4>
-                    <ul class="space-y-2 md:space-y-3 text-gray-400 md:text-lg">
-                        <li><a href="#" class="hover:text-yellow-400">Products</a></li>
-                        <li><a href="#" class="hover:text-yellow-400">About Us</a></li>
-                        <li><a href="#" class="hover:text-yellow-400">FAQ</a></li>
-                        <li><a href="#" class="hover:text-yellow-400">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h4 class="font-bold text-lg md:text-xl mb-4 md:mb-6">FOLLOW US</h4>
-                    <div class="flex space-x-4 md:space-x-6">
-                        <a href="#" class="hover:text-yellow-400">
-                            <i data-feather="instagram" class="w-6 h-6 md:w-7 md:h-7"></i>
-                        </a>
-                        <a href="#" class="hover:text-yellow-400">
-                            <i data-feather="twitter" class="w-6 h-6 md:w-7 md:h-7"></i>
-                        </a>
-                        <a href="#" class="hover:text-yellow-400">
-                            <i data-feather="facebook" class="w-6 h-6 md:w-7 md:h-7"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4 class="font-bold text-lg md:text-xl mb-4 md:mb-6">STAY UPDATED</h4>
-                    <div class="flex">
-                        <input 
-                            type="email" 
-                            placeholder="Your email" 
-                            class="px-4 py-2 md:py-3 rounded-l w-full md:text-lg" 
-                        />
-                        <button class="bg-yellow-400 text-black px-4 md:px-6 rounded-r font-bold text-lg md:text-xl">
-                            →
-                        </button>
-                    </div>
-                    <p class="text-gray-400 text-sm md:text-base mt-2 md:mt-3">Subscribe for exclusive offers and updates</p>
-                </div>
-            </div>
-            
-            <div class="border-t border-gray-800 mt-8 md:mt-12 pt-6 md:pt-8 text-center text-gray-400 text-sm md:text-base">
-                © 2025 BuzzBite. All rights reserved. 60mg caffeine per piece.
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        // Initialize Feather icons
-        document.addEventListener('DOMContentLoaded', () => {
-            feather.replace();
-        });
-    </script>
-</body>
-</html>
